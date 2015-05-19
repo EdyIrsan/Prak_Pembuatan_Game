@@ -1,8 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\kiki new 2D\Assets\Script\kikijump.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scrip\Jump.cs">
     <Files>
-      <File FileName="..\kiki new 2D\Assets\Script\kikijump.cs" Line="15" Column="2" />
+      <File FileName="Assets\Scrip\Jump.cs" Line="60" Column="92" />
+      <File FileName="D:\Documents\File Kuliah\Materi Semester VI\Pembuatan Game\New folder\Unity 2\Assets\Jump.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

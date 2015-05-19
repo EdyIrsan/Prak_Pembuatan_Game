@@ -1,15 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Jump : MonoBehaviour {
+	public Text score;
 
 	public AudioClip left;
 	public AudioClip loncat;
+	public GameObject bom;
 	Vector3 position;
 	bool jump;
 	float speedmove=10;
 	float speedjump=300;
 
+	void start (){
+		score.text= "0";
+	}
 
 
 	void Update () {
@@ -37,16 +43,34 @@ public class Jump : MonoBehaviour {
 	}
 	
 	void OnCollisionEnter2D(Collision2D other){
-		//jump = false;;
-		//Debug.Log ("Tersentuh");
-		if (other.gameObject.tag == "point")
+		if (other.gameObject.tag == "hppoint") {
 			other.gameObject.audio.Play ();
+			int point = int.Parse (score.text) + 100;
+			Destroy (other.gameObject);
+			score.text = point.ToString ();
+
+		}
+		if (other.gameObject.tag == "point") {
+			other.gameObject.audio.Play ();
+		}
+		if (other.gameObject.tag == "hpbom") {
+			Destroy (other.gameObject);
+			int point = int.Parse (score.text) - 100;
+			score.text = point.ToString ();
+			bom.transform.position = new Vector3(bom.transform.position.x,bom.transform.position.y,6);
+		}
 	}
 	
 	void OnCollisionExit2D(Collision2D other){
-		//jump = true;
-		//Debug.Log ("Terlepas");
+		if (other.gameObject.tag == "hppoint") {
+			other.gameObject.audio.Stop ();
+			int point = int.Parse(score.text)+100;
+			Destroy(other.gameObject);
+			score.text = point.ToString ();
+
+		}
 		if (other.gameObject.tag == "point")
 			other.gameObject.audio.Stop ();
+
 	}
 }
